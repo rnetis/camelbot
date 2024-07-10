@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 import WebApp from '@twa-dev/sdk';
@@ -32,7 +30,7 @@ function App() {
         </button>
       </div>
       <div>
-        <button onClick={() => WebApp.showAlert(`Hello, World Current Count is ${count}`)}>
+        <button onClick={() => WebApp.showAlert(`Current Count is ${count}`)}>
           Show Counter
         </button>
       </div>
