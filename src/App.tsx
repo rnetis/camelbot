@@ -15,6 +15,7 @@ function App() {
 
   useEffect(() => {
     WebApp.CloudStorage.getItem("counter", (error, result) => {
+      console.log(result)
       error == null ? setCount(0) : setCount(parseInt(result?.toString() || '0'))
     })
   },[]);
