@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -7,6 +7,17 @@ import WebApp from '@twa-dev/sdk';
 
 function App() {
   const [count, setCount] = useState(0)
+
+  const counter = (cn: number) => {
+    WebApp.CloudStorage.setItem("counter", (cn + 1).toString())
+    return cn + 1
+  }
+
+  useEffect(() => {
+    WebApp.CloudStorage.getItem("counter", (result) => {
+      setCount(parseInt(result?.toString() || '0'))
+    })
+  },[]);
 
   return (
     <>
@@ -20,7 +31,7 @@ function App() {
       </div>
       <h1>{count}</h1>
       <div className="card">
-        <button className="btn-class-name" onClick={() => setCount((count) => count + 1)}>
+        <button className="btn-class-name" onClick={() => setCount((cn) => counter(cn))}>
           <span className="back"></span>
           <span className="front"></span>
         </button>
