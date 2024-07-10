@@ -14,8 +14,8 @@ function App() {
   }
 
   useEffect(() => {
-    WebApp.CloudStorage.getItem("counter", (result) => {
-      setCount(parseInt(result?.toString() || '0'))
+    WebApp.CloudStorage.getItem("counter", (error, result) => {
+      error == null ? setCount(0) : setCount(parseInt(result?.toString() || '0'))
     })
   },[]);
 
