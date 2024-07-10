@@ -9,14 +9,15 @@ function App() {
   const [count, setCount] = useState(0)
 
   const counter = (cn: number) => {
-    WebApp.CloudStorage.setItem("counter", (cn + 1).toString())
-    return cn + 1
+    if(cn === 0){
+      WebApp.CloudStorage.getItem("counter", (error, result) => {
+        console.log(error, result)
+        setCount(parseInt(result?.toString() || '0'))
+      })
+    } else 
+    WebApp.CloudStorage.setItem("counter", (count + 1).toString())
+    return count + 1
   }
-
-  WebApp.CloudStorage.getItem("counter", (error, result) => {
-    console.log(error, result)
-    setCount(parseInt(result?.toString() || '0'))
-  })
 
   return (
     <>

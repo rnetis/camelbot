@@ -44,8 +44,8 @@
 .btn-class-name {
   --primary: 255, 90, 120;
   --secondary: 150, 50, 60;
-  width: 120px;
-  height: 100px;
+  width: 180px;
+  height: 150px;
   border: none;
   outline: none;
   cursor: pointer;
