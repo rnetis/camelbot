@@ -14,7 +14,7 @@ function App() {
   }
 
   WebApp.CloudStorage.getItem("counter", (error, result) => {
-    console.log(result)
+    console.log(error, result)
     setCount(parseInt(result?.toString() || '0'))
   })
 
